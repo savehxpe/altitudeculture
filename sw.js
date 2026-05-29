@@ -14,13 +14,21 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).then(res => {
-      if (res.status === 200) {
-        const clone = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, clone));
-      }
-      return res;
-    }))
-  );
+  const isAsset = URLS.some(u => e.request.url.endsWith(u) || e.request.url.endsWith('/'));
+  if (isAsset) {
+    // Network-first for main assets so updates show immediately
+    e.respondWith(
+      fetch(e.request).then(res => {
+        if (res.status === 200) {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+        }
+        return res;
+      }).catch(() => caches.match(e.request))
+    );
+  } else {
+    e.respondWith(
+      caches.match(e.request).then(r => r || fetch(e.request))
+    );
+  }
 });

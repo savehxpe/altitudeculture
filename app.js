@@ -91,6 +91,68 @@ const App = (() => {
     });
   }
 
+  function initDeckMetrics() {
+    const grid = document.getElementById('metricsGrid');
+    if (!grid) return;
+    const blocks = grid.querySelectorAll('.metric-value');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.counted) {
+          entry.target.dataset.counted = 'true';
+          const target = parseFloat(entry.target.dataset.target);
+          const suffix = entry.target.dataset.suffix || '';
+          const prefix = entry.target.closest('.metric-top')?.querySelector('.metric-prefix')?.textContent || '';
+          const isFloat = target % 1 !== 0;
+          const duration = 2000;
+          const start = performance.now();
+          function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = eased * target;
+            if (isFloat) {
+              entry.target.textContent = current.toFixed(1);
+            } else {
+              entry.target.textContent = Math.round(current).toLocaleString();
+            }
+            if (progress < 1) requestAnimationFrame(tick);
+            else {
+              if (isFloat) entry.target.textContent = target.toFixed(1);
+              else entry.target.textContent = Math.round(target).toLocaleString();
+            }
+          }
+          requestAnimationFrame(tick);
+        }
+      });
+    }, { threshold: 0.5 });
+    blocks.forEach(b => observer.observe(b));
+  }
+
+  function initFlowDiagram() {
+    const diagram = document.getElementById('flowDiagram');
+    if (!diagram) return;
+    const nodes = diagram.querySelectorAll('.flow-node');
+    const lines = diagram.querySelectorAll('.flow-line');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          nodes.forEach((node, i) => {
+            setTimeout(() => {
+              node.classList.add('visible');
+              if (i === 3) node.classList.add('active'); // highlight "Experience"
+            }, i * 150);
+          });
+          lines.forEach((line, i) => {
+            setTimeout(() => {
+              line.style.background = 'linear-gradient(90deg,var(--primary) 0%,var(--primary) 100%)';
+            }, i * 150 + 100);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(diagram);
+  }
+
   function init() {
     cacheDOM();
     state.totalSections = document.querySelectorAll('.section').length;
@@ -110,6 +172,8 @@ const App = (() => {
     initTilt();
     initJourneyScroll();
     initActionPlanScroll();
+    initDeckMetrics();
+    initFlowDiagram();
     renderDots();
   }
 

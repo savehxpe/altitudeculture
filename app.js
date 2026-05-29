@@ -8,78 +8,6 @@ const App = (() => {
 
   const DOM = {};
 
-  function initCursor() {
-    if (window.innerWidth < 768) return;
-    document.body.classList.add('cursor-hidden');
-    const el = document.createElement('div');
-    el.id = 'cursorFlake';
-    el.innerHTML = '<svg viewBox="0 0 24 24" width="34" height="34"><defs><filter id="cglow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07M12 2l-3 3 3 3 3-3-3-3zM12 22l-3-3 3-3 3 3-3 3zM2 12l3 3 3-3-3-3-3 3zM22 12l-3 3-3-3 3-3 3 3z" fill="none" stroke="#fff" stroke-width="1" filter="url(#cglow)" opacity="0.95"/><circle cx="12" cy="12" r="2.5" fill="#adc7ff" opacity="0.6"/></svg>';
-    document.body.appendChild(el);
-    let mx=-100, my=-100, cx=-100, cy=-100;
-    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; el.classList.add('visible'); });
-    document.addEventListener('mouseleave', () => el.classList.remove('visible'));
-    function tick() { cx+=(mx-cx)*0.12; cy+=(my-cy)*0.12; el.style.transform=`translate(${cx}px,${cy}px) translate(-50%,-50%)`; requestAnimationFrame(tick); }
-    tick();
-    initCursorTrail();
-  }
-
-  function initCursorTrail() {
-    const trails = [];
-    const maxTrails = 8;
-    for (let i = 0; i < maxTrails; i++) {
-      const t = document.createElement('div');
-      t.className = 'cursor-trail';
-      document.body.appendChild(t);
-      trails.push({el:t, x:-100, y:-100, life:0});
-    }
-    let mx=-100, my=-100;
-    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-    function tick() {
-      for (let i = trails.length - 1; i > 0; i--) {
-        trails[i].x = trails[i-1].x; trails[i].y = trails[i-1].y;
-        trails[i].el.style.transform = `translate(${trails[i].x}px,${trails[i].y}px) translate(-50%,-50%)`;
-        trails[i].el.classList.add('active');
-      }
-      trails[0].x = mx; trails[0].y = my;
-      trails[0].el.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
-      trails[0].el.classList.add('active');
-      requestAnimationFrame(tick);
-    }
-    tick();
-  }
-
-  function initSnowfall() {
-    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) && window.innerWidth<768) return;
-    const c = document.createElement('canvas');
-    c.id = 'snowCanvas';
-    document.body.prepend(c);
-    const resize = () => { c.width=window.innerWidth; c.height=window.innerHeight; };
-    resize(); window.addEventListener('resize', resize);
-    const ctx = c.getContext('2d');
-    const count = Math.min(100, Math.floor(window.innerWidth*0.1));
-    const flakes = Array.from({length:count}, () => ({
-      x:Math.random()*c.width, y:Math.random()*c.height,
-      r:Math.random()*3+0.5, s:Math.random()*1.2+0.3,
-      w:Math.random()*0.6-0.3, o:Math.random()*0.5+0.25
-    }));
-    function draw() {
-      ctx.clearRect(0,0,c.width,c.height);
-      flakes.forEach(f => {
-        f.y+=f.s; f.x+=f.w+Math.sin(f.y*0.01)*0.2;
-        if (f.y>c.height) { f.y=-5; f.x=Math.random()*c.width; }
-        if (f.x<0||f.x>c.width) f.x=Math.random()*c.width;
-        ctx.beginPath(); ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
-        ctx.fillStyle=`rgba(210,225,255,${f.o})`; ctx.fill();
-        if (f.r > 2) {
-          ctx.beginPath(); ctx.arc(f.x,f.y,f.r*1.5,0,Math.PI*2);
-          ctx.fillStyle=`rgba(210,225,255,${f.o*0.15})`; ctx.fill();
-        }
-      });
-      requestAnimationFrame(draw);
-    }
-    draw();
-  }
-
   function initMist() {
     document.querySelectorAll('.hero, .moment-detail[data-moment="afriski"]').forEach(s => {
       const m = document.createElement('div');
@@ -101,39 +29,45 @@ const App = (() => {
     });
   }
 
-  function initHero3D() {
-    const scene = document.getElementById('hero3D');
-    if (!scene) return;
-    const crystals = document.getElementById('snowCrystals');
-    if (crystals) {
-      for (let i = 0; i < 12; i++) {
-        const c = document.createElement('div');
-        c.className = 'crystal';
-        c.style.left = Math.random()*100 + '%';
-        c.style.top = Math.random()*60 + 20 + '%';
-        c.style.animationDelay = Math.random()*8 + 's';
-        c.style.animationDuration = (6+Math.random()*6) + 's';
-        crystals.appendChild(c);
-      }
-    }
-    let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const scrollY = window.scrollY;
-          const vh = window.innerHeight;
-          const progress = Math.min(scrollY / vh, 1);
-          const far = scene.querySelector('.hero-3d-far');
-          const mid = scene.querySelector('.hero-3d-mid');
-          const near = scene.querySelector('.hero-3d-near');
-          if (far) far.style.transform = `translateZ(-300px) scale(1.3) translateY(${progress*50}px)`;
-          if (mid) mid.style.transform = `translateZ(-150px) scale(1.15) translateY(${progress*30}px)`;
-          if (near) near.style.transform = `translateZ(0) translateY(${progress*10}px)`;
-          ticking = false;
+  function initJourneyScroll() {
+    const section = document.querySelector('.journey.cinematic');
+    if (!section) return;
+    const cards = section.querySelectorAll('.journey-card');
+    const nodes = section.querySelectorAll('.journey-node');
+    const fill = document.getElementById('journeyProgressFill');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const card = entry.target;
+        const idx = parseInt(card.dataset.stage);
+        if (entry.isIntersecting) {
+          card.classList.add('active');
+          nodes.forEach((n, i) => n.classList.toggle('active', i === idx));
+          if (fill) fill.style.height = ((idx / (cards.length - 1)) * 100) + '%';
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    }, { threshold: 0.6, rootMargin: '-20% 0px -20% 0px' });
+
+    cards.forEach(c => observer.observe(c));
+
+    // Mobile swipe active state
+    if (window.innerWidth < 768) {
+      const track = document.getElementById('journeyCards');
+      if (!track) return;
+      track.addEventListener('scroll', () => {
+        const center = track.scrollLeft + track.clientWidth / 2;
+        cards.forEach((card, i) => {
+          const left = card.offsetLeft;
+          const right = left + card.offsetWidth;
+          const isActive = center >= left && center <= right;
+          card.classList.toggle('active', isActive);
+          if (isActive && fill) fill.style.height = ((i / (cards.length - 1)) * 100) + '%';
         });
-        ticking = true;
-      }
-    }, {passive:true});
+      });
+    }
   }
 
   function initActionPlanScroll() {
@@ -172,11 +106,9 @@ const App = (() => {
     initAnchors();
     initFloatingStats();
     initServiceWorker();
-    initCursor();
-    initSnowfall();
     initMist();
     initTilt();
-    initHero3D();
+    initJourneyScroll();
     initActionPlanScroll();
     renderDots();
   }

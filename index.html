@@ -14,7 +14,13 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="loader"><div class="loader-ring"></div></div>
+  <div id="loader">
+    <div class="loader-mountain">
+      <div class="loader-peak"></div>
+      <div class="loader-ring-altitude"></div>
+    </div>
+    <div class="loader-text">Loading mountain signal</div>
+  </div>
   <div id="app">
     <header id="topBar">
       <div class="topbar-inner">
@@ -204,23 +210,100 @@
         </div>
       </section>
 
-      <section class="section journey" data-index="7">
+      <section class="section journey cinematic" data-index="7">
         <div class="parallax-layer layer-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/b/b0/Snow_Capped_Maloti_Mountains_-_panoramio.jpg')"></div>
-        <div class="section-overlay"></div>
-        <div class="section-content" style="text-align:center;">
-          <div style="max-width:700px;margin:0 auto;">
+        <div class="section-overlay" style="background:linear-gradient(180deg, rgba(10,11,12,0.97) 0%, rgba(10,11,12,0.88) 40%, rgba(10,11,12,0.95) 100%)"></div>
+        <div class="section-content journey-cinematic">
+          <header class="journey-header">
             <span class="section-label">03 /// THE FESTIVAL JOURNEY</span>
-            <h2>Arrival to Advocacy</h2>
-            <p class="lead-text" style="margin-left:auto;margin-right:auto;">From the moment you arrive to the moment you tell your friends — every step is designed to move you.</p>
-          </div>
-          <div class="journey-path">
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">01</span><span class="step-icon"><span class="material-symbols-outlined">flight_land</span></span><div><strong>Arrival</strong><p>Touch down or drive in. Sani Pass or Moshoeshoe I. The altitude hits you immediately.</p></div></div>
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">02</span><span class="step-icon"><span class="material-symbols-outlined">trending_up</span></span><div><strong>Settle In</strong><p>Get to altitude, get comfortable. The landscape unfolds with every hour.</p></div></div>
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">03</span><span class="step-icon"><span class="material-symbols-outlined">diversity_3</span></span><div><strong>Connect</strong><p>Meet the community. Pony trek, village visit, Basotho blanket ceremony.</p></div></div>
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">04</span><span class="step-icon"><span class="material-symbols-outlined">star</span></span><div><strong>The Festival</strong><p>Ski, snowboard, live music, night markets, astro-walks, and mountain energy.</p></div></div>
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">05</span><span class="step-icon"><span class="material-symbols-outlined">photo_camera</span></span><div><strong>Capture</strong><p>Take the photos, share the story, post the reel. The world needs to see this.</p></div></div>
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">06</span><span class="step-icon"><span class="material-symbols-outlined">flight_takeoff</span></span><div><strong>Return</strong><p>Head back down with memories, gear, a blanket, and a promise to come back.</p></div></div>
-            <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">07</span><span class="step-icon"><span class="material-symbols-outlined">campaign</span></span><div><strong>Advocacy</strong><p>Share. Tell a friend. Come back next year. Bring more people. That is how a movement grows.</p></div></div>
+            <h2 class="journey-title">Arrival<br><span class="journey-title-accent">to Advocacy</span></h2>
+            <p class="journey-lead">Seven moments. One mountain. Your story.</p>
+          </header>
+
+          <div class="journey-timeline-container">
+            <div class="journey-progress-line">
+              <div class="journey-progress-fill" id="journeyProgressFill"></div>
+              <div class="journey-node" data-stage="0"></div>
+              <div class="journey-node" data-stage="1"></div>
+              <div class="journey-node" data-stage="2"></div>
+              <div class="journey-node" data-stage="3"></div>
+              <div class="journey-node" data-stage="4"></div>
+              <div class="journey-node" data-stage="5"></div>
+              <div class="journey-node" data-stage="6"></div>
+            </div>
+
+            <div class="journey-cards" id="journeyCards">
+              <div class="journey-card" data-stage="0">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(79,195,247,0.15) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">flight_land</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">01</span>
+                  <h4>Arrival</h4>
+                  <p>Touch down or drive in. Sani Pass or Moshoeshoe I. The altitude hits you immediately.</p>
+                </div>
+              </div>
+              <div class="journey-card" data-stage="1">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(173,199,255,0.12) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">trending_up</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">02</span>
+                  <h4>Settle In</h4>
+                  <p>Get to altitude, get comfortable. The landscape unfolds with every hour.</p>
+                </div>
+              </div>
+              <div class="journey-card" data-stage="2">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(212,163,115,0.12) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">diversity_3</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">03</span>
+                  <h4>Connect</h4>
+                  <p>Meet the community. Pony trek, village visit, Basotho blanket ceremony.</p>
+                </div>
+              </div>
+              <div class="journey-card" data-stage="3">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(161,212,148,0.12) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">star</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">04</span>
+                  <h4>The Festival</h4>
+                  <p>Ski, snowboard, live music, night markets, astro-walks, and mountain energy.</p>
+                </div>
+              </div>
+              <div class="journey-card" data-stage="4">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(79,195,247,0.15) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">photo_camera</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">05</span>
+                  <h4>Capture</h4>
+                  <p>Take the photos, share the story, post the reel. The world needs to see this.</p>
+                </div>
+              </div>
+              <div class="journey-card" data-stage="5">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(173,199,255,0.12) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">flight_takeoff</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">06</span>
+                  <h4>Return</h4>
+                  <p>Head back down with memories, gear, a blanket, and a promise to come back.</p>
+                </div>
+              </div>
+              <div class="journey-card" data-stage="6">
+                <div class="journey-card-visual" style="background:linear-gradient(135deg, rgba(212,163,115,0.12) 0%, rgba(10,11,12,0.9) 100%)">
+                  <span class="material-symbols-outlined journey-card-icon">campaign</span>
+                </div>
+                <div class="journey-card-content">
+                  <span class="journey-card-num">07</span>
+                  <h4>Advocacy</h4>
+                  <p>Share. Tell a friend. Come back next year. Bring more people. That is how a movement grows.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

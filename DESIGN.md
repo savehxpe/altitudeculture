@@ -1,7 +1,7 @@
-# Team Altitude Culture — Design System & Movement Architecture
+# Altitude Culture — Design System & Movement Architecture
 
 ## Brand Essence
-Team Altitude Culture is building Lesotho's first Culture-Sports Festival in African snow. A movement that brings together snow, sport, Basotho culture, music, tourism, youth jobs, and local business. Not a pitch — a movement.
+Altitude Culture is building Lesotho's first Culture-Sports Festival in African snow. A movement that brings together snow, sport, Basotho culture, music, tourism, youth jobs, and local business. Not a pitch — a movement.
 
 ## The Core Message
 Lesotho's High Mountain Kingdom. The Maluti Mountains at 3,000 meters. Snow in winter. Culture all year. A festival that puts community first and brings the world up.

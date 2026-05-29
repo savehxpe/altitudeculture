@@ -41,6 +41,12 @@
             <a href="#solutions" class="btn-ghost magnetic-btn">The Five Solutions</a>
           </div>
         </div>
+        <div class="hero-3d-scene" id="hero3D">
+          <div class="hero-3d-layer hero-3d-far"></div>
+          <div class="hero-3d-layer hero-3d-mid"></div>
+          <div class="hero-3d-layer hero-3d-near"></div>
+          <div class="snow-crystals" id="snowCrystals"></div>
+        </div>
         <div class="scroll-indicator">
           <span>Scroll to explore</span>
           <div class="scroll-arrow"></div>
@@ -207,7 +213,7 @@
             <h2>Arrival to Advocacy</h2>
             <p class="lead-text" style="margin-left:auto;margin-right:auto;">From the moment you arrive to the moment you tell your friends — every step is designed to move you.</p>
           </div>
-          <div class="journey-timeline" style="text-align:left;">
+          <div class="journey-path">
             <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">01</span><span class="step-icon"><span class="material-symbols-outlined">flight_land</span></span><div><strong>Arrival</strong><p>Touch down or drive in. Sani Pass or Moshoeshoe I. The altitude hits you immediately.</p></div></div>
             <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">02</span><span class="step-icon"><span class="material-symbols-outlined">trending_up</span></span><div><strong>Settle In</strong><p>Get to altitude, get comfortable. The landscape unfolds with every hour.</p></div></div>
             <div class="journey-step glass-panel-sm fade-slide"><span class="step-num">03</span><span class="step-icon"><span class="material-symbols-outlined">diversity_3</span></span><div><strong>Connect</strong><p>Meet the community. Pony trek, village visit, Basotho blanket ceremony.</p></div></div>
@@ -228,7 +234,7 @@
             <h2>Lesotho Has Everything. Except a Way to Share It.</h2>
             <p class="lead-text" style="margin-left:auto;margin-right:auto;">Our mountains have snow, our people have culture, our youth need opportunity. The missing piece is a festival that brings it all together. That is what Altitude Culture is building.</p>
           </div>
-          <div class="solutions-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px;text-align:left;">
+          <div class="solutions-grid sol-stack" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px;text-align:left;">
             <div class="glass-panel-lg sol-card" style="padding:24px;">
               <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;"><span style="font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:rgba(173,199,255,0.15);line-height:1;">01</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--primary);background:rgba(173,199,255,0.06);padding:3px 8px;border-radius:4px;">NEW EXPERIENCES</span></div>
               <h4 style="font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:8px;">Making New Experiences</h4>
@@ -258,56 +264,56 @@
         </div>
       </section>
 
-      <section class="section idea-deck" data-index="9">
+      <section class="section action-plan-section" data-index="9" id="actionplan">
         <div class="section-overlay"></div>
-        <div class="section-content" style="text-align:center;">
-          <div style="max-width:800px;margin:0 auto;">
+        <div class="section-content" style="padding:0;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;justify-content:center;">
+          <div style="text-align:center;padding:48px 24px 24px;">
             <span class="section-label">05 /// THE ACTION PLAN</span>
             <h2>Ready. Set. Deploy.</h2>
-            <p class="lead-text" style="margin-left:auto;margin-right:auto;">We are not waiting for permission. The festival is being built. Here is how we make it happen, together.</p>
+            <p class="lead-text" style="margin:0 auto 24px;max-width:600px;">We are not waiting for permission. The festival is being built. Swipe or scroll through the plan.</p>
           </div>
-          <div class="idea-grid" style="text-align:left;">
-            <div class="idea-card glass-panel-lg fade-slide" style="padding:24px;">
+          <div class="action-plan-track" id="actionTrack" style="display:flex;gap:24px;padding:0 24px 48px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;">
+            <div class="action-plan-card glass-panel-lg fade-slide" style="padding:32px;scroll-snap-align:center;">
               <div class="idea-header"><span class="idea-num">01</span><span class="idea-tag">THE WHY</span></div>
-              <h3 style="font-family:'Sora',sans-serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:12px;">This Is the First</h3>
-              <p style="font-size:13px;color:var(--on-surface-variant);line-height:1.6;">Lesotho has snow, culture, and youth — but no major festival that brings them together. Altitude Culture is building the first Culture-Sports Festival in African snow. It is a new category for the continent.</p>
-              <p class="text-sm text-accent mt-4" style="font-size:13px;color:var(--primary);">A skier at 3,222m watching the sun set over the Maluti range with music echoing from the base. That is the feeling. That is the product.</p>
+              <h3 style="font-family:'Sora',sans-serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:16px;">This Is the First</h3>
+              <p style="font-size:14px;color:var(--on-surface-variant);line-height:1.7;">Lesotho has snow, culture, and youth — but no major festival that brings them together. Altitude Culture is building the first Culture-Sports Festival in African snow. It is a new category for the continent.</p>
+              <p style="font-size:14px;color:var(--primary);margin-top:20px;">A skier at 3,222m watching the sun set over the Maluti range with music echoing from the base. That is the feeling. That is the product.</p>
             </div>
-            <div class="idea-card glass-panel-lg fade-slide" style="padding:24px;">
+            <div class="action-plan-card glass-panel-lg fade-slide" style="padding:32px;scroll-snap-align:center;">
               <div class="idea-header"><span class="idea-num">02</span><span class="idea-tag">THE PLAN</span></div>
-              <h3 style="font-family:'Sora',sans-serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:12px;">How It Works</h3>
-              <ol class="timeline-list" style="list-style:none;padding:0;">
-                <li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span class="tl-num" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);min-width:16px;font-weight:500;">1</span>Spread the word — digital, social, word of mouth</li>
-                <li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span class="tl-num" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);min-width:16px;font-weight:500;">2</span>Guests book — packages for ski, trek, astro, and culture</li>
-                <li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span class="tl-num" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);min-width:16px;font-weight:500;">3</span>Arrive via Sani Pass or Maseru — the welcome begins</li>
-                <li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span class="tl-num" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);min-width:16px;font-weight:500;">4</span>Festival weekend — snow, music, markets, culture</li>
-                <li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span class="tl-num" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);min-width:16px;font-weight:500;">5</span>Capture and share — every guest becomes a storyteller</li>
-                <li style="display:flex;align-items:flex-start;gap:10px;padding:6px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span class="tl-num" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--primary);min-width:16px;font-weight:500;">6</span>Return and reinvest — guests come back, local economy grows</li>
+              <h3 style="font-family:'Sora',sans-serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:16px;">How It Works</h3>
+              <ol style="list-style:none;padding:0;gap:10px;display:flex;flex-direction:column;">
+                <li style="display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);min-width:20px;font-weight:500;">1</span>Spread the word — digital, social, word of mouth</li>
+                <li style="display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);min-width:20px;font-weight:500;">2</span>Guests book — packages for ski, trek, astro, and culture</li>
+                <li style="display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);min-width:20px;font-weight:500;">3</span>Arrive via Sani Pass or Maseru — the welcome begins</li>
+                <li style="display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);min-width:20px;font-weight:500;">4</span>Festival weekend — snow, music, markets, culture</li>
+                <li style="display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);min-width:20px;font-weight:500;">5</span>Capture and share — every guest becomes a storyteller</li>
+                <li style="display:flex;align-items:flex-start;gap:12px;padding:8px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);min-width:20px;font-weight:500;">6</span>Return and reinvest — guests come back, local economy grows</li>
               </ol>
             </div>
-            <div class="idea-card glass-panel-lg fade-slide" style="padding:24px;">
+            <div class="action-plan-card glass-panel-lg fade-slide" style="padding:32px;scroll-snap-align:center;">
               <div class="idea-header"><span class="idea-num">03</span><span class="idea-tag">THE NUMBERS</span></div>
-              <h3 style="font-family:'Sora',sans-serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:12px;">What We Are Building</h3>
-              <div class="ksf-table" style="display:flex;flex-direction:column;gap:0;">
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>People who visit Lesotho annually</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">1.4 million</span></div>
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Jobs the tourism sector can create</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">10,000 per year</span></div>
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Festival visitors (target Year 1)</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">2,000 - 5,000</span></div>
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Average spend per visitor</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">$800 - $2,500</span></div>
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Local impact stays in community</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">90%</span></div>
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Guests who return Year 2</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">Target: 30%</span></div>
-                <div class="ksf-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Word-of-mouth spread</span><span class="ksf-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">Every guest tells 17 people</span></div>
+              <h3 style="font-family:'Sora',sans-serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:16px;">What We Are Building</h3>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>People who visit Lesotho annually</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">1.4 million</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Jobs the tourism sector can create</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">10,000 per year</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Festival visitors (target Year 1)</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">2,000 - 5,000</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Average spend per visitor</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">$800 - $2,500</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Local impact stays in community</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">90%</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Guests who return Year 2</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">Target: 30%</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Word-of-mouth spread</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">Every guest tells 17 people</span></div>
               </div>
             </div>
-            <div class="idea-card glass-panel-lg fade-slide" style="padding:24px;">
+            <div class="action-plan-card glass-panel-lg fade-slide" style="padding:32px;scroll-snap-align:center;">
               <div class="idea-header"><span class="idea-num">04</span><span class="idea-tag">THE ASK</span></div>
-              <h3 style="font-family:'Sora',sans-serif;font-size:18px;font-weight:600;color:#fff;margin-bottom:12px;">Where the Money Goes</h3>
-              <div class="budget-table" style="display:flex;flex-direction:column;gap:0;">
-                <div class="budget-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Festival platform + tech</span><span class="budget-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">$100K - $200K</span></div>
-                <div class="budget-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Festival site + stages + snow infrastructure</span><span class="budget-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">$600K - $1.2M</span></div>
-                <div class="budget-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Marketing + content creators + media</span><span class="budget-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">$250K - $500K</span></div>
-                <div class="budget-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Team + operations</span><span class="budget-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">$300K - $500K</span></div>
-                <div class="budget-row" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Community partnerships + village programs</span><span class="budget-val" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--primary);font-weight:500;">$150K - $250K</span></div>
-                <div class="budget-row budget-total" style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:12px;border-bottom:1px solid var(--glass-border);font-weight:600;color:#fff;border-top:1px solid var(--glass-border);margin-top:4px;padding-top:12px;"><span>Total to Launch</span><span class="budget-val" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent);font-weight:500;">$1.4M - $2.6M</span></div>
+              <h3 style="font-family:'Sora',sans-serif;font-size:20px;font-weight:600;color:#fff;margin-bottom:16px;">Where the Money Goes</h3>
+              <div style="display:flex;flex-direction:column;gap:4px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Festival platform + tech</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">$100K - $200K</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Festival site + stages + snow infrastructure</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">$600K - $1.2M</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Marketing + content creators + media</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">$250K - $500K</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Team + operations</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">$300K - $500K</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;color:var(--on-surface-variant);border-bottom:1px solid var(--glass-border);"><span>Community partnerships + village programs</span><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--primary);font-weight:500;">$150K - $250K</span></div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:13px;border-bottom:1px solid var(--glass-border);font-weight:600;color:#fff;border-top:1px solid var(--glass-border);margin-top:8px;padding-top:16px;"><span>Total to Launch</span><span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);font-weight:500;">$1.4M - $2.6M</span></div>
               </div>
             </div>
           </div>
@@ -324,13 +330,13 @@
             <p class="lead-text" style="max-width:500px;margin:0 auto 24px;">Altitude Culture is building the first Culture-Sports Festival in African snow. We are looking for partners, operators, and believers who want to move with us.</p>
             <div class="cta-contact" style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:24px;">
               <div class="contact-row" style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--on-surface);"><span class="material-symbols-outlined" style="color:var(--primary);font-size:18px;">group</span> Altitude Culture</div>
-              <div class="contact-row" style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--on-surface);"><span class="material-symbols-outlined" style="color:var(--primary);font-size:18px;">globe</span> altitudeculture.com</div>
+              <div class="contact-row" style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--on-surface);"><span class="material-symbols-outlined" style="color:var(--primary);font-size:18px;">globe</span> <a href="https://savehxpe.com" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;">savehxpe.com</a></div>
             </div>
             <p class="text-sm text-on-surface-variant mt-6" style="font-size:13px;color:var(--on-surface-variant);margin-top:24px;">Maseru, Lesotho &middot; Maluti Mountains &middot; June — August</p>
           </div>
           <footer class="site-footer" style="width:100%;margin-top:64px;padding-top:24px;border-top:1px solid var(--glass-border);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-            <p class="text-sm text-on-surface-variant" style="font-size:13px;color:var(--on-surface-variant);">&copy; 2024 Altitude Culture. All rights reserved.</p>
-            <p class="text-sm" style="font-size:12px;color:var(--on-surface-variant);width:100%;margin-top:8px;">Brought to you by <a href="https://instagram.com/weareoutworld" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;">Outworld</a> &times; <a href="https://savehxpe.com" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;">savehxpe</a></p>
+            <p class="text-sm text-on-surface-variant" style="font-size:13px;color:var(--on-surface-variant);">&copy; 2026 Outworld. All rights reserved.</p>
+            <p class="text-sm" style="font-size:12px;color:var(--on-surface-variant);width:100%;margin-top:8px;">Brought to you by <a href="https://instagram.com/weareoutworld" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;">Outworld</a> &times; <a href="https://savehxpe.com" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;">savehxpe</a>. Website by <a href="https://savehxpe.com" target="_blank" rel="noopener" style="color:var(--primary);text-decoration:none;">savehxpe</a>.</p>
             <div class="footer-links" style="display:flex;gap:16px;">
               <a href="#" class="text-sm text-on-surface-variant hover:text-primary" style="font-size:13px;color:var(--on-surface-variant);text-decoration:none;transition:color .3s var(--easing);">Privacy</a>
               <a href="#" class="text-sm text-on-surface-variant hover:text-primary" style="font-size:13px;color:var(--on-surface-variant);text-decoration:none;transition:color .3s var(--easing);">Terms</a>

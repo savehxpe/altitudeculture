@@ -1,4 +1,4 @@
-const CACHE = 'altitude-culture-v1';
+const CACHE = 'altitude-culture-v2';
 const URLS = ['/', '/index.html', '/styles.css', '/app.js', '/manifest.webmanifest'];
 
 self.addEventListener('install', e => {

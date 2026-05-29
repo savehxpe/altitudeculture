@@ -97,6 +97,15 @@ h2{font-family:'Sora',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;
 .btn-ghost:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.12)}
 .btn-icon{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:none;cursor:pointer;color:var(--on-surface);transition:all .3s var(--easing);background:rgba(255,255,255,0.04)}
 .btn-icon:hover{color:var(--primary);background:rgba(173,199,255,0.1)}
+.sol-card{transition:all .4s var(--easing);border-color:var(--glass-border)}
+.sol-card:hover{border-color:rgba(173,199,255,0.2);transform:translateY(-2px);background:rgba(18,20,22,0.7)}
+.sol-num{font-family:'Sora',sans-serif;font-size:28px;font-weight:700;color:rgba(173,199,255,0.15);line-height:1}
+.sol-tag{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.15em;color:var(--primary);background:rgba(173,199,255,0.06);padding:3px 8px;border-radius:4px}
+.sol-card h4{font-family:'Sora',sans-serif;font-size:16px;font-weight:600;color:#fff;margin-bottom:8px}
+.sol-card p{font-size:13px;color:var(--on-surface-variant);line-height:1.6}
+.idea-card h3{margin-bottom:12px}
+.idea-card p{font-size:13px;color:var(--on-surface-variant);line-height:1.6}
+.idea-card .text-accent{color:var(--primary);font-size:13px;margin-top:16px}
 
 /* ===== SCROLL INDICATOR ===== */
 .scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--on-surface-variant);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;animation:fadeInUp 2s ease-out 1s both}

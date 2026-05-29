@@ -52,43 +52,6 @@ const App = (() => {
     }, { threshold: 0.6, rootMargin: '-20% 0px -20% 0px' });
 
     cards.forEach(c => observer.observe(c));
-
-    // Mobile swipe active state
-    if (window.innerWidth < 768) {
-      const track = document.getElementById('journeyCards');
-      if (!track) return;
-      track.addEventListener('scroll', () => {
-        const center = track.scrollLeft + track.clientWidth / 2;
-        cards.forEach((card, i) => {
-          const left = card.offsetLeft;
-          const right = left + card.offsetWidth;
-          const isActive = center >= left && center <= right;
-          card.classList.toggle('active', isActive);
-          if (isActive && fill) fill.style.height = ((i / (cards.length - 1)) * 100) + '%';
-        });
-      });
-    }
-  }
-
-  function initActionPlanScroll() {
-    const track = document.getElementById('actionTrack');
-    if (!track) return;
-    let isDown = false, startX, scrollLeft;
-    track.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
-    track.addEventListener('mouseleave', () => isDown = false);
-    track.addEventListener('mouseup', () => isDown = false);
-    track.addEventListener('mousemove', e => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - track.offsetLeft;
-      track.scrollLeft = scrollLeft - (x - startX) * 2;
-    });
-    track.addEventListener('wheel', e => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        track.scrollLeft += e.deltaY;
-      }
-    });
   }
 
   function initDeckMetrics() {
@@ -171,7 +134,6 @@ const App = (() => {
     initMist();
     initTilt();
     initJourneyScroll();
-    initActionPlanScroll();
     initDeckMetrics();
     initFlowDiagram();
     renderDots();
@@ -250,6 +212,7 @@ const App = (() => {
   }
 
   function initParallax() {
+    if (window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {

@@ -254,3 +254,17 @@ h2{font-family:'Sora',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;
   .moment-content{padding-right:5vw}
   .scroll-indicator-inline{display:none}
 }
+
+/* ===== FROST EFFECTS ===== */
+.cursor-hidden{cursor:none}
+#cursorFlake{position:fixed;pointer-events:none;z-index:9999;width:22px;height:22px;opacity:0;transition:opacity .4s;will-change:transform}
+#cursorFlake.visible{opacity:0.85}
+#snowCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.glass-panel-sm,.glass-panel-lg{transition:border-color .4s ease,box-shadow .4s ease;border-color:rgba(255,255,255,0.06)}
+.glass-panel-sm:hover,.glass-panel-lg:hover{border-color:rgba(173,199,255,0.18);box-shadow:0 0 24px rgba(173,199,255,0.04),inset 0 0 20px rgba(173,199,255,0.015)}
+.btn-primary:hover{box-shadow:0 0 28px rgba(173,199,255,0.1)}
+.btn-ghost:hover{border-color:rgba(173,199,255,0.15);box-shadow:0 0 20px rgba(173,199,255,0.04)}
+.mist-layer{position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(0deg,rgba(173,199,255,0.035) 0%,transparent 100%);pointer-events:none;z-index:1;animation:mistDrift 12s ease-in-out infinite alternate}
+@keyframes mistDrift{0%{opacity:0.3;transform:translateX(-1.5%)}100%{opacity:0.6;transform:translateX(1.5%)}}
+.moment-card{transition:transform .15s ease-out;will-change:transform}
+.loader-ring{box-shadow:0 0 16px rgba(173,199,255,0.15),inset 0 0 16px rgba(173,199,255,0.05)}
